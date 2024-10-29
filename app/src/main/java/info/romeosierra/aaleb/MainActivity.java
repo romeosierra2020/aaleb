@@ -38,7 +38,12 @@ public class MainActivity extends Activity {
 //// Assign our renderer.
             glSurfaceView.setRenderer(new MyGLRenderer(this));
             rendererSet = true;
-
+            glSurfaceView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    return false;
+                }
+            });
             setContentView(glSurfaceView);
         } else {
             Toast.makeText(this, "This device does not support OpenGL ES 3.0.",
